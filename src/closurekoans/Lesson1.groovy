@@ -9,11 +9,16 @@ import static closurekoans.SupportCode.___
 // Make the test pass by replacing the ___ with
 // a correct value.
 class Lesson1 {
-    @Test
-    void definingAString() {
-        def s = ___
-        assert s == "microwaving"
+    @Test void "adding up numbers is fun!"() {
+        def variable = 2 + 3
+        assert variable == ___
     }
+
+    @Test void "assigning values to variables"() {
+        def variable = ___
+        assert variable == "No it isn't!"
+    }
+
 
     @Test
     void callingAClosureExplicitly() {
