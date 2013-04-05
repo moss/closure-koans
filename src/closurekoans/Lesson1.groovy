@@ -3,6 +3,7 @@ package closurekoans
 import org.junit.*
 
 import static closurekoans.SupportCode.___
+import static org.junit.Assert.fail
 
 // To run: click inside the first test,
 // and hit control-shift-F10.
@@ -19,19 +20,20 @@ class Lesson1 {
         assert variable == "No it isn't!"
     }
 
-
-    @Test
-    void callingAClosureExplicitly() {
-        def c = { -> "poodles"}
-        def s = c.call()
-        assert s == ___
+    @Test void "calling a closure"() {
+        def closure = { assert "blah" == ___ }
+        closure.call()
     }
 
-    @Test
-    void callingAClosureImplicitly() {
-        def c = { -> "is inappropriate"}
-        def s = c()
-        assert s == ___
+    @Test void "calling a closure implicitly"() {
+        def closure = { assert "blah" == ___ }
+        closure()
+    }
+
+    @Test void "a closure does nothing until you call it"() {
+        def closure = { fail "Don't run this!" }
+        def shouldRun = ___
+        if (shouldRun) closure()
     }
 
     @Test
