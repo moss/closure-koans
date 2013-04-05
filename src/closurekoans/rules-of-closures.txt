@@ -1,0 +1,15 @@
+Lesson 1: Rules of closures
+0) An expression is done the moment you define it.
+1) A closure is something to do.
+\-- calling explicitly
+\-- calling implicitly
+2) A closure does nothing until you call it.
+3) A closure can return a value.
+\-- returning explicitly
+\-- returning implicitly
+4) A closure can take arguments.
+\-- explicit arguments
+\-- implicit argument
+\-- no implicit argument given
+5) A closure closes over its environment.
+6) A closure can change its environment.
