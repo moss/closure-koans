@@ -36,6 +36,31 @@ class Lesson1 {
         if (shouldRun) closure()
     }
 
+    @Test void "returning a value from a closure"() {
+        def closure = { return ___ }
+        assert closure.call() == "winston"
+    }
+
+    @Test void "returning a value implicitly"() {
+        def closure = { "winston" }
+        assert closure.call() == ___
+    }
+
+    @Test void "closures can take arguments"() {
+        def closure = { word -> word.toUpperCase() }
+        assert closure.call("nooo!") == ___
+    }
+
+    @Test void "closures can take an implicit argument"() {
+        def closure = { it.toUpperCase() }
+        assert closure.call(___) == "NOOO!"
+    }
+
+    @Test void "what if you don't provide the implicit argument?"() {
+        def closure = { assert it == ___ }
+        closure.call()
+    }
+
     @Test
     void accessingVariablesInTheEnclosingMethod() {
         def a = "but fun"
