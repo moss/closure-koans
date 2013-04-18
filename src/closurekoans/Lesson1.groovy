@@ -61,22 +61,16 @@ class Lesson1 {
         closure.call()
     }
 
-    @Test
-    void accessingVariablesInTheEnclosingMethod() {
-        def a = "but fun"
-        def c = { -> ___}
-        def s = c()
-        assert s == "but fun"
+    @Test void "closing over variables"() {
+        def a = "what"
+        def c = { a.toUpperCase() }
+        assert c.call() == ___
     }
 
-    @Test
-    void thingsCanChange() {
-        def a = 1
-        def c = { -> a++ > 3 ? "too many poodles" : "keep going" }
-        c()
-        c()
-        c()
-        def result = c()
-        assert result == ___
+    @Test void "changing your environment"() {
+        def items = ["Bread", "Peanut Butter"]
+        def addItem = { items.add(it) }
+        addItem "Lime Pickle"
+        assert items == ___
     }
 }

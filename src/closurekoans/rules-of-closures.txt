@@ -1,15 +1,22 @@
 Lesson 1: Rules of closures
-0) An expression is done the moment you define it.
-1) A closure is something to do.
-\-- calling explicitly
-\-- calling implicitly
-2) A closure does nothing until you call it.
-3) A closure can return a value.
-\-- returning explicitly
-\-- returning implicitly
-4) A closure can take arguments.
-\-- explicit arguments
-\-- implicit argument
-\-- no implicit argument given
-5) A closure closes over its environment.
-6) A closure can change its environment.
+ 0) An expression is done the moment you define it.
+ 1) A closure is something to do.
+ \-- calling explicitly
+ \-- calling implicitly
+ 2) A closure does nothing until you call it.
+ 3) A closure can return a value.
+ \-- returning explicitly
+ \-- returning implicitly
+ 4) A closure can take arguments.
+ \-- explicit arguments
+ \-- implicit argument
+ \-- no implicit argument given
+ 5) A closure closes over its environment.
+ 6) A closure can change its environment.
+
+Lesson 2: Closures in APIs
+ 0) A parameter lets you vary the data that a function works with.
+ 1) A closure lets you vary the operations that a function uses to do its work.
+ 2) Pass in closures to describe how work should be done.
+ 3) Pass in closures to put work in context.
+ 4)
