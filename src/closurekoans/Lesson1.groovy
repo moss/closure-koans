@@ -5,10 +5,13 @@ import org.junit.*
 
 import static org.junit.Assert.fail
 
-// To run: click inside the first test,
-// and hit control-shift-F10.
-// Make the test pass by replacing the ___ with
-// a correct value.
+/* Instructions:
+ * 1) Run the first test.
+ *    (In IntelliJ: click somewhere inside the test, and hit Control-Shift-F10)
+ * 2) Fill in the ___ to make the test pass.
+ * 3) Run it again and see how you did.
+ * 4) Once the test is passing, meditate on what you've learned.
+ */
 class Lesson1 extends ClosureKoans {
     @Test void "assigning values to variables"() {
         def ingredients = cubano.ingredients
