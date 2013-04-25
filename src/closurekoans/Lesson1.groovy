@@ -1,4 +1,6 @@
 package closurekoans
+
+import closurekoans.supportcode.ClosureKoans
 import org.junit.*
 
 import static org.junit.Assert.fail
@@ -54,7 +56,7 @@ class Lesson1 extends ClosureKoans {
         assert closure.call(___) == "NOOO!"
     }
 
-    @Test void "what if you don't provide the implicit argument?"() {
+    @Test void "see what happens if you leave out the implicit argument"() {
         def closure = { assert it == ___ }
         closure.call()
     }

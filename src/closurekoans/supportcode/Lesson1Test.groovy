@@ -1,4 +1,6 @@
-package closurekoans
+package closurekoans.supportcode
+
+import closurekoans.Lesson1
 import org.hamcrest.*
 import org.junit.*
 import org.junit.internal.matchers.*

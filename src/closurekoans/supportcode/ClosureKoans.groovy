@@ -1,4 +1,4 @@
-package closurekoans
+package closurekoans.supportcode
 
 import org.junit.Before;
 
