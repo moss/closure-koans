@@ -10,30 +10,25 @@ import static org.junit.Assert.fail
 // Make the test pass by replacing the ___ with
 // a correct value.
 class Lesson1 extends ClosureKoans {
-    @Test void "adding up numbers is fun!"() {
-        def variable = 2 + 3
-        assert variable == ___
-    }
-
     @Test void "assigning values to variables"() {
-        def variable = ___
-        assert variable == "No it isn't!"
+        def ingredients = cubano.ingredients
+        assert ingredients == ___
     }
 
     @Test void "calling a closure"() {
-        def closure = { assert "blah" == ___ }
+        def closure = { assert pbj.___ == ['peanut butter', 'jelly'] }
         closure.call()
     }
 
     @Test void "calling a closure implicitly"() {
-        def closure = { assert "blah" == ___ }
+        def closure = { assert ___.ingredients == ['peanut butter', 'jelly'] }
         closure()
     }
 
     @Test void "a closure does nothing until you call it"() {
-        def closure = { fail "Don't run this!" }
-        def shouldRun = ___
-        if (shouldRun) closure()
+        def closure = { fail "Make me a sandwich! And fill in the blank!" }
+        def object = _
+        if (!object.isSandwich()) closure()
     }
 
     @Test void "returning a value from a closure"() {

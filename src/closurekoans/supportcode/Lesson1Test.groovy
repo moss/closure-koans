@@ -11,18 +11,19 @@ import static org.junit.Assert.assertThat
 class Lesson1Test {
     @Test
     void theTest() {
-        assertKoan(new Lesson1().&"adding up numbers is fun!", 5)
-        assertKoan(new Lesson1().&"assigning values to variables", "No it isn't!")
+        assertKoan(new Lesson1(), "assigning values to variables", ['ham', 'pork', 'swiss cheese', 'pickles', 'mustard'])
+        assertKoan(new Lesson1(), "calling a closure", "ingredients") { it.pbj.___ = it.pbj.ingredients }
     }
 
-    private void assertKoan(Closure<Void> koan, def solution) {
-        assertThat("${name(koan)} starts out unsolved", koan, not(isSolved()))
-        koan.___ = solution
-        assertThat("${name(koan)} solved by <$solution>", koan, isSolved())
+    private void assertKoan(ClosureKoans koan, String testName, def solution) {
+        assertKoan(koan, testName, solution as String) { it.___ = solution }
     }
 
-    private String name(Closure<Void> koan) {
-        return """"${koan.method}" koan"""
+    private void assertKoan(ClosureKoans koan, String testName, String description, Closure<Void> solution) {
+        Closure<Void> koanMethod = koan.&"$testName"
+        assertThat("${testName} starts out unsolved", koanMethod, not(isSolved()))
+        solution.call(koan)
+        assertThat("${testName} solved by <$description>", koanMethod, isSolved())
     }
 
     private static Matcher<Closure<Void>> isSolved() {
