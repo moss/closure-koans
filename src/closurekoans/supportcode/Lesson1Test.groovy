@@ -21,6 +21,7 @@ class Lesson1Test {
         assertKoan(new Lesson1(), "closures can take arguments", ['ham', 'pork', 'swiss cheese', 'pickles', 'mustard'])
         assertKoan(new Lesson1(), "closures can take an implicit argument", "italian") { it.___ = it.italian }
         assertKoan(new Lesson1(), "see what happens if you leave out the implicit argument", "null") { it.___ = null }
+        assertKoan(new Lesson1(), "closing over variables", ['portobello mushrooms', 'jack cheese', 'pesto'])
     }
 
     private void assertKoan(ClosureKoans koan, String testName, def solution) {

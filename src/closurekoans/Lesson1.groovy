@@ -57,8 +57,8 @@ class Lesson1 extends ClosureKoans {
     }
 
     @Test void "closing over variables"() {
-        def a = "what"
-        def c = { a.toUpperCase() }
+        def sandwich = portobello
+        def c = { sandwich.ingredients }
         assert c.call() == ___
     }
 }
