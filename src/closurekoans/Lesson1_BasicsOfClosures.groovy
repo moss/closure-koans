@@ -6,13 +6,15 @@ import org.junit.*
 import static org.junit.Assert.fail
 
 /* Instructions:
- * 1) Run the first test.
+ * 1) Find the first failing test method.
  *    (In IntelliJ: click somewhere inside the test, and hit Control-Shift-F10)
- * 2) Fill in the ___ to make the test pass.
+ * 2) Fill in the blank ___ to make it pass.
  * 3) Run it again and see how you did.
  * 4) Once the test is passing, meditate on what you've learned.
+ *
+ * Note: Do not change anything other than the blank.
  */
-class Lesson1 extends ClosureKoans {
+class Lesson1_BasicsOfClosures extends ClosureKoans {
     @Test void "assigning values to variables"() {
         def ingredients = cubano.ingredients
         assert ingredients == ___
@@ -59,7 +61,18 @@ class Lesson1 extends ClosureKoans {
         closure.call()
     }
 
-    @Test void "closing over variables"() {
+    @Test void "a closure can be a tiny expression or a multi-line monstrosity"() {
+        def processFood = { food ->
+            def openUpTheSandwich = food.ingredients
+            def grabTheStuffOnTop = openUpTheSandwich.first()
+            def yellIt = grabTheStuffOnTop.toUpperCase()
+            def louder = yellIt + "!!!"
+            return louder
+        }
+        assert processFood(cubano) == ___
+    }
+
+    @Test void "a closure has access to ('closes over') its environment"() {
         def sandwich = portobello
         def c = { sandwich.ingredients }
         assert c.call() == ___
