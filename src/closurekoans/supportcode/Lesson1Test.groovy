@@ -13,13 +13,21 @@ class Lesson1Test {
     void theTest() {
         assertKoan(new Lesson1(), "assigning values to variables", ['ham', 'pork', 'swiss cheese', 'pickles', 'mustard'])
         assertKoan(new Lesson1(), "calling a closure", "ingredients") { it.pbj.___ = it.pbj.ingredients }
+        assertKoan(new Lesson1(), "calling a closure implicitly", "pbj") { it.___ = it.pbj }
+        assertKoan(new Lesson1(), "a closure does nothing until you call it", "pbj") { it.___ = it.pbj }
+        assertKoan(new Lesson1(), "a closure does nothing until you call it", "cubano") { it.___ = it.cubano }
+        assertKoan(new Lesson1(), "returning a value from a closure", "jelly")
+        assertKoan(new Lesson1(), "returning a value implicitly", ['salami', 'mortadella', 'capicola', 'cheese', 'tomatoes', 'onions', 'oil', 'vinegar', 'hots'])
+        assertKoan(new Lesson1(), "closures can take arguments", ['ham', 'pork', 'swiss cheese', 'pickles', 'mustard'])
+        assertKoan(new Lesson1(), "closures can take an implicit argument", "italian") { it.___ = it.italian }
+        assertKoan(new Lesson1(), "see what happens if you leave out the implicit argument", "null") { it.___ = null }
     }
 
     private void assertKoan(ClosureKoans koan, String testName, def solution) {
         assertKoan(koan, testName, solution as String) { it.___ = solution }
     }
 
-    private void assertKoan(ClosureKoans koan, String testName, String description, Closure<Void> solution) {
+    private void assertKoan(ClosureKoans koan, String testName, String description, Closure solution) {
         Closure<Void> koanMethod = koan.&"$testName"
         assertThat("${testName} starts out unsolved", koanMethod, not(isSolved()))
         solution.call(koan)

@@ -12,9 +12,16 @@ Lesson 1: Rules of closures
  \-- implicit argument
  \-- no implicit argument given
  5) A closure closes over its environment.
- 6) A closure can change its environment.
 
-Lesson 2: Closures in APIs
+Lesson 2: Closing over state
+ 0) A closure closes over its environment.
+ 1) A closure can change state that it has captured.
+ 2) By returning a closure, a function can define a function.
+ 3) Closures resulting from different function calls are isolated from each other.
+ 4) You can use closures to define multiple similar functions.
+ 5) A closure can carry hidden state that it modifies over time.
+
+Lesson 3: Closures in APIs
  0) A parameter lets you vary the data that a function works with.
  1) A closure lets you vary the operations that a function uses to do its work.
  2) Groovy syntax for Closure method arguments.
@@ -23,12 +30,6 @@ Lesson 2: Closures in APIs
  5) By taking closure arguments, a method can act as a new control structure.
  6) A closure can represent deferred work.
  7) A closure can represent work awaiting a context.
-
-Lesson 3: Metaprogramming with closures
- 0) A closure closes over its environment.
- 1) Functions can define functions.
- 2) By closing over state, functions can define multiple similar functions.
- 3) By closing over state, functions can define functions with hidden state.
 
 Lesson 4: Some Groovy-specific features
  0) Groovy does some stuff differently.

@@ -27,28 +27,28 @@ class Lesson1 extends ClosureKoans {
 
     @Test void "a closure does nothing until you call it"() {
         def closure = { fail "Make me a sandwich! And fill in the blank!" }
-        def object = _
+        def object = ___
         if (!object.isSandwich()) closure()
     }
 
     @Test void "returning a value from a closure"() {
-        def closure = { return ___ }
-        assert closure.call() == "winston"
+        def closure = { return ['peanut butter', ___] }
+        assert closure.call() == pbj.ingredients
     }
 
     @Test void "returning a value implicitly"() {
-        def closure = { "winston" }
+        def closure = { italian.ingredients }
         assert closure.call() == ___
     }
 
     @Test void "closures can take arguments"() {
-        def closure = { word -> word.toUpperCase() }
-        assert closure.___("nooo!") == "NOOO!"
+        def closure = { sandwich -> assert sandwich.ingredients == ___ }
+        closure.call(cubano)
     }
 
     @Test void "closures can take an implicit argument"() {
-        def closure = { it.toUpperCase() }
-        assert closure.call(___) == "NOOO!"
+        def closure = { assert it.ingredients == ['salami', 'mortadella', 'capicola', 'cheese', 'tomatoes', 'onions', 'oil', 'vinegar', 'hots'] }
+        closure.call(___)
     }
 
     @Test void "see what happens if you leave out the implicit argument"() {
@@ -60,12 +60,5 @@ class Lesson1 extends ClosureKoans {
         def a = "what"
         def c = { a.toUpperCase() }
         assert c.call() == ___
-    }
-
-    @Test void "changing your environment"() {
-        def items = ["Bread", "Peanut Butter"]
-        def addItem = { items.add(it) }
-        addItem "Lime Pickle"
-        assert items == ___
     }
 }
