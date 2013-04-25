@@ -17,6 +17,25 @@ Lesson 1: Rules of closures
 Lesson 2: Closures in APIs
  0) A parameter lets you vary the data that a function works with.
  1) A closure lets you vary the operations that a function uses to do its work.
- 2) Pass in closures to describe how work should be done.
- 3) Pass in closures to put work in context.
- 4)
+ 2) Groovy syntax for Closure method arguments.
+ 3) Closures can describe transformations of data.
+ 4) Closures can be used to filter data.
+ 5) By taking closure arguments, a method can act as a new control structure.
+ 6) A closure can represent deferred work.
+ 7) A closure can represent work awaiting a context.
+
+Lesson 3: Metaprogramming with closures
+ 0) A closure closes over its environment.
+ 1) Functions can define functions.
+ 2) By closing over state, functions can define multiple similar functions.
+ 3) By closing over state, functions can define functions with hidden state.
+
+Lesson 4: Some Groovy-specific features
+ 0) Groovy does some stuff differently.
+ 1) You can add new methods to a class by setting closures on its metaClass.
+ \- per-instance metaClasses
+ 2) The owner of a closure is the class where it was defined.
+ \- If the closure was defined in another closure, the owner is that closure.
+ 3) The delegate of a closure defaults to being its owner.
+ 4) By setting the delegate, you can make new data available in the closure.
+ 5) A closure can implement a Java interface.
