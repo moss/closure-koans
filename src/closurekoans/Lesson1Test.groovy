@@ -15,7 +15,7 @@ class Lesson1Test {
 
     private void assertKoan(Closure<Void> koan, def solution) {
         assertThat("${name(koan)} starts out unsolved", koan, not(isSolved()))
-        SupportCode.___ = solution
+        koan.___ = solution
         assertThat("${name(koan)} solved by <$solution>", koan, isSolved())
     }
 

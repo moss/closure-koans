@@ -1,15 +1,13 @@
 package closurekoans
-
 import org.junit.*
 
-import static closurekoans.SupportCode.___
 import static org.junit.Assert.fail
 
 // To run: click inside the first test,
 // and hit control-shift-F10.
 // Make the test pass by replacing the ___ with
 // a correct value.
-class Lesson1 {
+class Lesson1 extends ClosureKoans {
     @Test void "adding up numbers is fun!"() {
         def variable = 2 + 3
         assert variable == ___
@@ -48,7 +46,7 @@ class Lesson1 {
 
     @Test void "closures can take arguments"() {
         def closure = { word -> word.toUpperCase() }
-        assert closure.call("nooo!") == ___
+        assert closure.___("nooo!") == "NOOO!"
     }
 
     @Test void "closures can take an implicit argument"() {
