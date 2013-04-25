@@ -39,4 +39,51 @@ class Lesson2_ClosingOverEnvironment extends ClosureKoans {
         improveSandwich()
         assert sandwich.ingredients == ___
     }
+
+    @Test void "closures close over variables, not over values"() {
+        def sandwich = pbj
+        def replaceSandwich = { sandwich = cubano }
+
+        assert sandwich.ingredients == ['peanut butter', 'jelly']
+        replaceSandwich()
+        assert sandwich.ingredients == ___
+    }
+
+    @Test void "and now, time for a game of Find The Blank"() {
+        def ruin = { sandwich -> sandwich.ingredients.add(anotherIngredient()) }
+        ruin(italian)
+        assert italian.ingredients.contains('lettuce') // "Lettuce ruins an Italian." --Al
+    }
+
+    String anotherIngredient() {
+        return ___
+    }
+
+    @Test void "functions making functions"() {
+        def ruin = addIngredient('lettuce')
+        ruin(pbj)
+        assert pbj.ingredients.contains('lettuce') // Lettuce's record is really not great at this point.
+    }
+
+    Closure addIngredient(ingredient) {
+        return { sandwich -> sandwich.ingredients.add(___) }
+    }
+
+    @Test void "setting up a high production volume function factory"() {
+        def veganize = removeIngredient('jack cheese')
+        def blandify = removeIngredient('hots')
+        def createLightVersion = removeIngredient('swiss cheese')
+
+        veganize(portobello)
+        blandify(italian)
+        createLightVersion(cubano)
+
+        assert portobello.ingredients == ['portobello mushrooms', 'pesto']
+        assert italian.ingredients == ['salami', 'mortadella', 'capicola', 'cheese', 'tomatoes', 'onions', 'oil', 'vinegar']
+        assert cubano.ingredients == ['ham', 'pork', 'pickles', 'mustard'] // totally healthy!
+    }
+
+    Closure removeIngredient(ingredient) {
+        { sandwich -> sandwich.____ }
+    }
 }

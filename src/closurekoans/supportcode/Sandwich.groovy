@@ -11,4 +11,8 @@ class Sandwich {
     boolean isSandwich() {
         true
     }
+
+    def get____() {
+        ingredients.add('Please fill in the blank.')
+    }
 }

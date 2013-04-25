@@ -31,6 +31,14 @@ class KoanTest {
         assertKoan(Lesson2_ClosingOverEnvironment, "a closure has access to ('closes over') its environment", ['portobello mushrooms', 'jack cheese', 'pesto'])
         assertKoan(Lesson2_ClosingOverEnvironment, "watch how things change", ['ham', 'pork', 'swiss cheese', 'pickles', 'mustard'])
         assertKoan(Lesson2_ClosingOverEnvironment, "I'm changing the environment -- ask me how!", ['peanut butter', 'jelly', 'lime pickle'])
+        assertKoan(Lesson2_ClosingOverEnvironment, "closures close over variables, not over values", ['ham', 'pork', 'swiss cheese', 'pickles', 'mustard'])
+        assertKoan(Lesson2_ClosingOverEnvironment, "and now, time for a game of Find The Blank", 'lettuce')
+        assertKoan(Lesson2_ClosingOverEnvironment, "functions making functions", 'lettuce')
+        assertKoan(Lesson2_ClosingOverEnvironment, "setting up a high production volume function factory", "implementing removeIngredient") {
+            it.metaClass.removeIngredient = { ingredient ->
+                { sandwich -> sandwich.ingredients.remove(ingredient) }
+            }
+        }
     }
 
     private static void assertKoan(Class<? extends ClosureKoans> koanClass, String testName, def solution) {
