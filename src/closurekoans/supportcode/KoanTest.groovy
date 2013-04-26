@@ -39,6 +39,7 @@ class KoanTest {
                 { sandwich -> sandwich.ingredients.remove(ingredient) }
             }
         }
+        assertKoan(Lesson2_ClosingOverEnvironment, "spooky action at a distance", ['peanut butter', 'jelly', 'lime pickle', 'sardines', 'marmite', 'sugar', 'salt'])
     }
 
     private static void assertKoan(Class<? extends ClosureKoans> koanClass, String testName, def solution) {

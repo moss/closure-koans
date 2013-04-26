@@ -17,19 +17,19 @@ Lesson 2: Closing over state
  0) A closure closes over its environment.
  1) A closure can change state that it has captured.
  2) By returning a closure, a function can define a function.
- 3) Closures resulting from different function calls are isolated from each other.
- 4) You can use closures to define multiple similar functions.
- 5) A closure can carry hidden state that it modifies over time.
+ 3) You can use closures to define multiple similar functions.
+ 4) A closure can carry hidden state that it modifies over time.
 
 Lesson 3: Closures in APIs
  0) A parameter lets you vary the data that a function works with.
  1) A closure lets you vary the operations that a function uses to do its work.
  2) Groovy syntax for Closure method arguments.
- 3) Closures can describe transformations of data.
- 4) Closures can be used to filter data.
- 5) By taking closure arguments, a method can act as a new control structure.
- 6) A closure can represent deferred work.
- 7) A closure can represent work awaiting a context.
+ 3) The same closure can be reused in different contexts.
+ 4) Closures can describe transformations of data.
+ 5) Closures can be used to filter data.
+ 6) By taking closure arguments, a method can act as a new control structure.
+ 7) A closure can represent deferred work.
+ 8) A closure can represent work awaiting a context.
 
 Lesson 4: Some Groovy-specific features
  0) Groovy does some stuff differently.

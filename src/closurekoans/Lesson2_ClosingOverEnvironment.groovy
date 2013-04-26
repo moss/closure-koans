@@ -1,6 +1,7 @@
 package closurekoans
 
 import closurekoans.supportcode.ClosureKoans
+import closurekoans.supportcode.Sandwich
 import org.junit.Test
 
 /* Instructions:
@@ -85,5 +86,19 @@ class Lesson2_ClosingOverEnvironment extends ClosureKoans {
 
     Closure removeIngredient(ingredient) {
         { sandwich -> sandwich.____ }
+    }
+
+    @Test void "spooky action at a distance"() {
+        def enhancePbj = defSandwichEnhancerMethod(pbj)
+        enhancePbj('lime pickle')
+        enhancePbj('sardines')
+        enhancePbj('marmite')
+        enhancePbj('sugar')
+        enhancePbj('salt')
+        assert pbj.ingredients == ___
+    }
+
+    Closure defSandwichEnhancerMethod(Sandwich sandwich) {
+        { ingredient -> sandwich.ingredients.add(ingredient) }
     }
 }
