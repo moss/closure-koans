@@ -2,6 +2,7 @@ package closurekoans.supportcode
 
 import closurekoans.Lesson1_BasicsOfClosures
 import closurekoans.Lesson2_ClosingOverEnvironment
+import closurekoans.Lesson3_ClosuresInApis
 import org.hamcrest.*
 import org.junit.*
 import org.junit.internal.matchers.*
@@ -34,16 +35,36 @@ class KoanTest {
         assertKoan(Lesson2_ClosingOverEnvironment, "closures close over variables, not over values", ['ham', 'pork', 'swiss cheese', 'pickles', 'mustard'])
         assertKoan(Lesson2_ClosingOverEnvironment, "and now, time for a game of Find The Blank", 'lettuce')
         assertKoan(Lesson2_ClosingOverEnvironment, "functions making functions", 'lettuce')
-        assertKoan(Lesson2_ClosingOverEnvironment, "setting up a high production volume function factory", "implementing removeIngredient") {
-            it.metaClass.removeIngredient = { ingredient ->
-                { sandwich -> sandwich.ingredients.remove(ingredient) }
-            }
+        assertKoanSolvedByImplementingMethod(Lesson2_ClosingOverEnvironment, "setting up a high production volume function factory", "removeIngredient") { ingredient ->
+            { sandwich -> sandwich.ingredients.remove(ingredient) }
         }
         assertKoan(Lesson2_ClosingOverEnvironment, "spooky action at a distance", ['peanut butter', 'jelly', 'lime pickle', 'sardines', 'marmite', 'sugar', 'salt'])
     }
 
+    @Test
+    void lesson3Test() {
+        assertKoan(Lesson3_ClosuresInApis, "duplicated logic is ugly", 'PEANUT BUTTER')
+        assertKoanSolvedByImplementingMethod(Lesson3_ClosuresInApis, "extracting a method can help", "yellFirstIngredient") { Sandwich sandwich ->
+            sandwich.ingredients.first().toUpperCase()
+        }
+        assertKoan(Lesson3_ClosuresInApis, "sometimes duplication is more subtle", ['peanut butter', 'jelly'])
+        assertKoanSolvedByImplementingMethod(Lesson3_ClosuresInApis, "a closure can address subtle duplication", "modifyOutsides") { Sandwich sandwich, Closure whatToDoWithTheIngredients ->
+            def first = sandwich.ingredients.first()
+            def last = sandwich.ingredients.last()
+            first = whatToDoWithTheIngredients.call(first)
+            last = whatToDoWithTheIngredients.call(last)
+            return [first, last]
+        }
+    }
+
     private static void assertKoan(Class<? extends ClosureKoans> koanClass, String testName, def solution) {
         assertKoan(koanClass, testName, solution as String) { it.___ = solution }
+    }
+
+    private static void assertKoanSolvedByImplementingMethod(Class<? extends ClosureKoans> koanClass, String testName, String methodName, Closure implementation) {
+        assertKoan(koanClass, testName, "implementing $methodName") {
+            it.metaClass."$methodName" = implementation
+        }
     }
 
     private static void assertKoan(Class<? extends ClosureKoans> koanClass, String testName, String description, Closure solution) {
@@ -59,7 +80,8 @@ class KoanTest {
 
     private static Matcher<Closure<Void>> isSolved() {
         return new TypeSafeMatcher<Closure<Void>>() {
-            @Override boolean matchesSafely(Closure<Void> testMethod) {
+            @Override
+            boolean matchesSafely(Closure<Void> testMethod) {
                 def didItFail = false
                 try {
                     testMethod()
