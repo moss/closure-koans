@@ -55,6 +55,10 @@ class KoanTest {
             last = whatToDoWithTheIngredients.call(last)
             return [first, last]
         }
+        assertKoan(Lesson3_ClosuresAreJustObjects, "a closure is just a method parameter like any other", 'toLowerCase closure') {
+            it.____ = { ingredient -> ingredient.toLowerCase() }
+        }
+        assertKoan(Lesson3_ClosuresAreJustObjects, "you can reuse a closure in different contexts", ['PEANUT BUTTER!', 'JELLY!'])
     }
 
     private static void assertKoan(Class<? extends ClosureKoans> koanClass, String testName, def solution) {

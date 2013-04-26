@@ -60,4 +60,24 @@ class Lesson3_ClosuresAreJustObjects extends ClosureKoans {
         last = ___
         return [first, last]
     }
+
+    @Test void "a closure is just a method parameter like any other"() {
+        def cubanResult = modifyFirst(cubano, { it.toUpperCase() })
+        def pbjResult = modifyFirst(pbj, ____)
+
+        assert cubanResult == 'HAM'
+        assert pbjResult == 'peanut butter'
+    }
+
+    def modifyFirst(Sandwich sandwich, Closure whatToDoWithTheIngredients) {
+        def first = sandwich.ingredients.first()
+        return whatToDoWithTheIngredients.call(first)
+    }
+
+    @Test void "you can reuse a closure in different contexts"() {
+        def yell = { it.toUpperCase() + '!' }
+
+        assert modifyFirst(cubano, yell) == 'HAM!'
+        assert pbj.ingredients.collect(yell) == ___
+    }
 }
