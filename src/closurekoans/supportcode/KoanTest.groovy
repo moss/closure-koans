@@ -2,7 +2,7 @@ package closurekoans.supportcode
 
 import closurekoans.Lesson1_BasicsOfClosures
 import closurekoans.Lesson2_ClosingOverEnvironment
-import closurekoans.Lesson3_ClosuresInApis
+import closurekoans.Lesson3_ClosuresAreJustObjects
 import org.hamcrest.*
 import org.junit.*
 import org.junit.internal.matchers.*
@@ -43,12 +43,12 @@ class KoanTest {
 
     @Test
     void lesson3Test() {
-        assertKoan(Lesson3_ClosuresInApis, "duplicated logic is ugly", 'PEANUT BUTTER')
-        assertKoanSolvedByImplementingMethod(Lesson3_ClosuresInApis, "extracting a method can help", "yellFirstIngredient") { Sandwich sandwich ->
+        assertKoan(Lesson3_ClosuresAreJustObjects, "duplicated logic is ugly", 'PEANUT BUTTER')
+        assertKoanSolvedByImplementingMethod(Lesson3_ClosuresAreJustObjects, "extracting a method can help", "yellFirstIngredient") { Sandwich sandwich ->
             sandwich.ingredients.first().toUpperCase()
         }
-        assertKoan(Lesson3_ClosuresInApis, "sometimes duplication is more subtle", ['peanut butter', 'jelly'])
-        assertKoanSolvedByImplementingMethod(Lesson3_ClosuresInApis, "a closure can address subtle duplication", "modifyOutsides") { Sandwich sandwich, Closure whatToDoWithTheIngredients ->
+        assertKoan(Lesson3_ClosuresAreJustObjects, "sometimes duplication is more subtle", ['peanut butter', 'jelly'])
+        assertKoanSolvedByImplementingMethod(Lesson3_ClosuresAreJustObjects, "a closure can address subtle duplication", "modifyOutsides") { Sandwich sandwich, Closure whatToDoWithTheIngredients ->
             def first = sandwich.ingredients.first()
             def last = sandwich.ingredients.last()
             first = whatToDoWithTheIngredients.call(first)

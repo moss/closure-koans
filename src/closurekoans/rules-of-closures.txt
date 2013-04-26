@@ -20,16 +20,13 @@ Lesson 2: Closing over state
  3) You can use closures to define multiple similar functions.
  4) A closure can carry hidden state that it modifies over time.
 
-Lesson 3: Closures in APIs
+Lesson 3: Functions as first-class objects.
  0) A parameter lets you vary the data that a function works with.
  1) A closure lets you vary the operations that a function uses to do its work.
- 2) Groovy syntax for Closure method arguments.
+ 2) When you pass a closure to a method, it's a parameter like any other.
  3) The same closure can be reused in different contexts.
- 4) Closures can describe transformations of data.
- 5) Closures can be used to filter data.
- 6) By taking closure arguments, a method can act as a new control structure.
- 7) A closure can represent deferred work.
- 8) A closure can represent work awaiting a context.
+ 4) You can use closure parameters to define new control structures.
+ 5) Closures describe filters or transformations of data.
 
 Lesson 4: Some Groovy-specific features
  0) Groovy does some stuff differently.
